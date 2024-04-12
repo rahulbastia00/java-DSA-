@@ -1,0 +1,89 @@
+public class linkedlist {
+    public static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+
+    }
+    public static Node AddAtSpecificLocation(Node head, int data, int position){
+        Node newNode = new Node(data);
+        if(head == null){
+            head = newNode;
+        } else {
+            if(position == 1){
+               newNode.next = head;
+               head = newNode;
+               return head;
+            } else {
+                Node temp = head;
+                for(int i=1; i<position-1; i++){
+                    temp = temp.next;
+                }
+                newNode.next = temp.next;
+                temp.next = newNode;
+                return head;
+            }
+        }
+        return head;
+    }
+    public static Node AddAtEnd(Node head, int data){
+        Node NewNode = new Node(data);
+        if(head == null){
+           head = NewNode;
+        } else {
+            Node temp = head;
+            while(temp.next != null){
+                temp = temp.next;
+            }
+            temp.next = NewNode;
+
+        }
+        return head;
+    }
+    public static Node Addatbeg(Node head, int data){
+        Node newNode = new Node(data);
+         if(head == null){
+             // If the linked list is empty, set the new node as the head.
+             head = newNode;
+         } else {
+             // Otherwise, insert the new node at the beginning.
+             newNode.next = head;
+             head = newNode;
+         }
+        return head;
+    }
+    public static void Printll(Node head){
+        Node temp = head;
+        while(temp != null){
+            System.out.print(temp.data +" => ");
+            temp = temp.next;
+        }
+    }
+
+    public static void main(String[] args) {
+        linkedlist ll = new linkedlist();
+        Node a = new Node(9);
+        Node b = new Node(8);
+        Node c = new Node(7);
+        Node d = new Node(6);
+
+        Node head = a;
+        a.next = b;
+        b.next = c;
+        c.next = d;
+        head = AddAtSpecificLocation(a, 89, 3);
+        Printll(head);
+        System.out.println("===========================================");
+        head = Addatbeg(a, 100);
+        Printll(head);
+        System.out.println("===========================================");
+        head = AddAtEnd(a, 100);
+        Printll(head);
+
+
+    }
+}
