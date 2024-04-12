@@ -75,12 +75,13 @@ public class linkedlist {
         a.next = b;
         b.next = c;
         c.next = d;
+        System.out.println("=====================Add at specific location======================");
         head = AddAtSpecificLocation(a, 89, 3);
         Printll(head);
-        System.out.println("===========================================");
+        System.out.println("========================Add at starting===================");
         head = Addatbeg(a, 100);
         Printll(head);
-        System.out.println("===========================================");
+        System.out.println("=========================Add at ending==================");
         head = AddAtEnd(a, 100);
         Printll(head);
 
